@@ -185,3 +185,26 @@ eksctl utils associate-iam-oidc-provider \
     --cluster kamalesheksdemo3 \
     --approve
 
+create aws key pair using UI : `kamalesh-kube-demo`
+
+# Create Node Group with additional Add-Ons in Public Subnets
+eksctl create nodegroup --cluster=kamalesheksdemo3 \
+                       --region=us-east-1 \
+                       --name=kamalesheksdemo3-ng-public1 \
+                       --node-type=t3.medium \
+                       --nodes=2 \
+                       --nodes-min=2 \
+                       --nodes-max=4 \
+                       --node-volume-size=20 \
+                       --ssh-access \
+                       --ssh-public-key=kamalesh-kube-demo \
+                       --managed \
+                       --asg-access \
+                       --external-dns-access \
+                       --full-ecr-access \
+                       --appmesh-access \
+                       --alb-ingress-access 
+
+eksctl get nodegroup --cluster=kamalesheksdemo3
+
+eksctl delete cluster kamalesheksdemo3
