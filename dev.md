@@ -208,3 +208,4 @@ eksctl create nodegroup --cluster=kamalesheksdemo3 \
 eksctl get nodegroup --cluster=kamalesheksdemo3
 
 eksctl delete cluster kamalesheksdemo3
+eksctl delete nodegroup --cluster=kamalesheksdemo3 --name=kamalesheksdemo3-ng-public1ß
